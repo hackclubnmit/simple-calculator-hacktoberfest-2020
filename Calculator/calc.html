@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+
+    <style>
+
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .front{
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: auto;
+            align-items: center;
+        }
+
+        body{
+          /* background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);  */
+          background-image: linear-gradient(-20deg, #fc6076 0%, #ff9a44 100%);
+          
+        }
+
+        form{
+            width: 420px;
+            height: 500px;
+            box-shadow: 0 0 20px 7px;
+            border-radius: 40px;
+            background-image: linear-gradient(-225deg, #69EACB 0%, #EACCF8 48%, #6654F1 100%);
+
+        }
+
+        #heading{
+            font-size: 20px;
+            width: inherit;
+            background: transparent;
+            color: black;
+            text-align: center;
+            outline:none;
+            border:none;
+            padding: 10px 0 5px 0;
+        }
+
+        #display{
+
+            width: inherit;
+            height: 100px;
+            background: transparent;
+            border: none;
+           color: black;
+           padding: 0 20px 0 0;
+            font-size: 30px;
+            text-align: right;
+
+        }
+
+        .row1{
+            background: transparent;
+            display: flex;
+            width: inherit;
+            justify-content: center;
+            height: 80px;
+            border-radius: 40px;
+        }
+
+        .numval{
+            background: transparent;
+            border: none;
+            outline: none;
+            font-size: 25px;
+        }
+
+        .rowval{
+            display: flex;
+            width: inherit;
+            justify-content: center;
+            height: 40px;
+            border-radius: 40px;
+        }
+
+        .clear{
+            background: transparent;
+            border: none;
+            outline: none;
+            font-size: 25px;
+        }
+
+        .operator{
+            border-radius: 40px;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-size: 25px;
+        }
+
+        input{
+            flex: 1;
+        }
+
+        .numval:hover{
+            background-image: linear-gradient(to top, #e14fad 0%, #f9d423 100%);
+            transition:0.3s;
+            border-radius: 30px;
+
+
+        }
+
+        .clear:hover{
+            background-image: linear-gradient(-225deg, #A445B2 0%, #D41872 52%, #FF0066 100%);
+            transition:0.3s;
+            border-radius: 30px;
+            
+        }
+
+        .operator:hover{
+            background-image: linear-gradient(-225deg, #20E2D7 0%, #F9FEA5 100%);
+            transition:1s;
+
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="front">
+        <form name="calc">
+
+            <input type="text" value="Calculator" id="heading">
+            <input type="text"  name="answers" id="display">
+
+
+            <div class="rowval">
+                <input type="button" value="Clear" class="clear" onclick="calc.answers.value = '' ">
+                <input type="button" value="=" class="clear" onclick="calc.answers.value = eval (calc.answers.value) ">
+            </div>
+
+            <div class="row1" >
+                <input type="button" value="7" class="numval" onclick="calc.answers.value += '7' ">
+                <input type="button" value="8" class="numval" onclick="calc.answers.value += '8' ">
+                <input type="button" value="9" class="numval" onclick="calc.answers.value += '9' ">
+                <input type="button" value="x" class="operator" onclick="calc.answers.value += '*' ">
+            </div>
+
+            <div class="row1" >
+                <input type="button" value="4" class="numval" onclick="calc.answers.value += '4' ">
+                <input type="button" value="5" class="numval" onclick="calc.answers.value += '5' ">
+                <input type="button" value="6" class="numval" onclick="calc.answers.value += '6' ">
+                <input type="button" value="-" class="operator" onclick="calc.answers.value += '-' ">
+
+            </div>
+
+            <div class="row1" >
+                <input type="button" value="1" class="numval" onclick="calc.answers.value += '1' ">
+                <input type="button" value="2" class="numval" onclick="calc.answers.value += '2' ">
+                <input type="button" value="3" class="numval" onclick="calc.answers.value += '3' ">
+                <input type="button" value="+" class="operator" onclick="calc.answers.value += '+' ">
+
+            </div>
+
+            <div class="row1" >
+                <input type="button" value="." class="operator" onclick="calc.answers.value += '.' ">
+                <input type="button" value="0" class="numval" onclick="calc.answers.value += '0' ">
+                <input type="button" value="%" class="operator" onclick="calc.answers.value += '%' ">
+                <input type="button" value="/" class="operator" onclick="calc.answers.value += '/' ">
+
+            </div>
+
+
+        </form>
+    </div>
+    
+</body>
+</html>
