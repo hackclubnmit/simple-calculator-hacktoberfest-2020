@@ -34,14 +34,30 @@ const appendText = (character) => {
 }
 
 const removeLastChar = () => {
-  if(operationString.innerHTML.length >= 1){
-    operationString.innerHTML = operationString.innerHTML.substring(0, operationString.innerHTML.length-1);
+  if (operationString.innerHTML.length >= 1) {
+    operationString.innerHTML = operationString.innerHTML.substring(0, operationString.innerHTML.length - 1);
   }
 }
 
 const resetInput = () => {
   operationString.innerHTML = "";
   resultString.innerHTML = "";
+}
+
+const handleDot = () => {
+  let display = operationString.innerHTML;
+  let operators = ["-", "+", "/", "*"]
+  //if no number or the last number is an operator, append "0." instead of only "."
+  if (display.length === 0 || operators.includes(display.charAt(display.length - 1))) {
+    appendText("0.")
+    return;
+  }
+  else {
+    //only append dot if current number does not already include a dot.
+    let numbers = display.split(/[-/*+]/)
+    if (numbers[numbers.length - 1].includes(".")) return;
+    else appendText(".")
+  }
 }
 
 // ******add events here *******
@@ -64,5 +80,5 @@ btn6.addEventListener('click', () => appendText("6"));
 btn7.addEventListener('click', () => appendText("7"));
 btn8.addEventListener('click', () => appendText("8"));
 btn9.addEventListener('click', () => appendText("9"));
-btnDot.addEventListener('click', () => appendText("."));
+btnDot.addEventListener('click', () => handleDot());
 btnPercent.addEventListener('click', () => appendText('%'));
