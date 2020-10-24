@@ -30,7 +30,21 @@ const displayHandler = () => {
 };
 
 const appendText = (character) => {
-  operationString.innerHTML += character
+  checkRemoveOperator(operationString, character);
+  operationString.innerHTML += character;
+}
+
+function checkRemoveOperator(str, newChar) {
+  let operators = ["-", "+", "/", "*"];
+  let isOperator = false; //check is the last one is an operator
+  let isAnotherOperator = false; //check if the new one is an operator
+  for (const operator of operators){
+    if(str.innerHTML.slice(-1) == operator) isOperator = true;
+  }
+  for (const operator of operators){
+    if(newChar == operator) isAnotherOperator = true;
+  }
+  if (isOperator && isAnotherOperator) removeLastChar(); //if the new one and the last one are operators, remove last one
 }
 
 const removeLastChar = () => {
