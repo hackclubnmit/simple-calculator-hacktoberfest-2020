@@ -60,13 +60,32 @@ const handleDot = () => {
   }
 }
 
+const handleOperator = (symbol) => {
+  let display = operationString.innerHTML;
+  let operators = ["-", "+", "/", "*"]
+  // user can't start with an operator apart from minus eg "-4" but not "/4"  
+  if (display.length === 0) {
+    if (symbol === "-") {
+      appendText(symbol)
+      return;
+    } else return;
+  }
+  // prevent duplicate operators eg "4-*+4" 
+  if (operators.includes(display.charAt(display.length - 1))) {
+    return;
+  }
+  // otherwise add symbol to display
+  appendText(symbol)
+}
+
+
 // ******add events here *******
 
 equalBtn.addEventListener('click', displayHandler);
-addBtn.addEventListener('click', () => appendText("+"));
-subsBtn.addEventListener('click', () => appendText("-"));
-multiplyBtn.addEventListener('click', () => appendText("*"));
-divideBtn.addEventListener('click', () => appendText("/"));
+addBtn.addEventListener('click', () => handleOperator("+"));
+subsBtn.addEventListener('click', () => handleOperator("-"));
+multiplyBtn.addEventListener('click', () => handleOperator("*"));
+divideBtn.addEventListener('click', () => handleOperator("/"));
 resetBtn.addEventListener('click', () => resetInput());
 removeLastBtn.addEventListener('click', () => removeLastChar());
 
