@@ -3,7 +3,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background-color: #e8fcf0;
+  background-color: grey !important;
   padding: 1rem;
   color: #69b683;
 }
@@ -12,15 +12,17 @@ body {
   padding: 32px 24px;
   width: 240px;
   background-color: #e8fcf0;
+  color:black;
   box-shadow: 6px 6px 10px rgba(164, 243, 200, 0.5),
     -6px -6px 10px rgba(255, 255, 255, 0.6);
   border-radius: 16px;
 }
 .calculator__screen {
   text-align: right;
+  
   padding: 12px 8px;
   border-radius: 6px;
-  background-color: #e3fbee;
+  background-color: #6bfaa2;
   box-shadow: inset 6px 6px 10px rgba(164, 243, 197, 0.5),
     inset -6px -6px 10px rgba(255, 255, 255, 0.6);
   margin-bottom: 24px;
@@ -35,7 +37,7 @@ body {
   font-size: 24px;
   margin: 0;
   font-weight: 600;
-  color: #6bfaab;
+  color: black !important;
   letter-spacing: 2px;
 }
 .calculator__buttons {
@@ -58,7 +60,7 @@ body {
   font-weight: 500;
 }
 .calculator__buttons .btn:hover {
-  background-color: #dff1fb;
+  background-color: grey !important;
 }
 .calculator__buttons .btn:active:focus {
   box-shadow: inset 6px 6px 10px rgba(164, 243, 197, 0.5),
@@ -94,4 +96,9 @@ body {
 .calculator__buttons .btn.highlight {
   color: #2f7741;
   color: #6bfa83;
+}
+.heading{
+  margin-top:-40%;
+  padding-left:20px;
+  color: black;
 }
