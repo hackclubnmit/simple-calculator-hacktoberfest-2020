@@ -47,17 +47,19 @@ const resetInput = () => {
 const handleDot = () => {
   let display = operationString.innerHTML;
   let operators = ["-", "+", "/", "*"]
+  
   //if no number or the last number is an operator, append "0." instead of only "."
   if (display.length === 0 || operators.includes(display.charAt(display.length - 1))) {
     appendText("0.")
     return;
   }
-  else {
-    //only append dot if current number does not already include a dot.
-    let numbers = display.split(/[-/*+]/)
-    if (numbers[numbers.length - 1].includes(".")) return;
-    else appendText(".")
-  }
+  
+  //only append dot if current number does not already include a dot.
+  let numbers = display.split(/[-/*+]/)
+  
+  if (numbers[numbers.length - 1].includes(".")) return;
+  
+  appendText(".")
 }
 
 // ******add events here *******
